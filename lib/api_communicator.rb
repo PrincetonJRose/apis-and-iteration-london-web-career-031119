@@ -36,10 +36,12 @@ def print_movies(films)
   # some iteration magic and puts out the movies in a nice list
   # films_in.each do |film|
   # puts film['title']
-  puts "\nMovies this character is in:\n"
+  puts "\nMovies this character is in:"
+  puts
   films.each do |film, title|
     puts title
   end
+  puts
 end
 
 def show_character_movies(character)
