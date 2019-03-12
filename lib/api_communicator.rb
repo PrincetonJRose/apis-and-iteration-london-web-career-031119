@@ -21,8 +21,8 @@ def get_character_movies_from_api(character_name)
   response_hash['results'].each do |result|
     if result['name'].downcase == character_name
       for number in 0...result['films'].size
-        film_title = result['films'][number]
-        get_title = RestClient.get(film_title)
+        film_page = result['films'][number]
+        get_title = RestClient.get(film_page)
         get_title = JSON.parse(get_title)
         title = get_title['title']
         films_in[result['films'][number]] = title
@@ -37,6 +37,7 @@ def print_movies(films)
   # films_in.each do |film|
   # puts film['title']
   films.each do |film, title|
+    puts "\nMovies this character is in:\n"
     puts title
   end
 end
